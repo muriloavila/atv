@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+message User {
+    string id = 1;
+    string name = 2;
+    string username = 3;
+    string password = 4;
+}
+
+message validTokenRequest {
+    string authHeader = 1;
+}
+
+message validTokenResponse {
+    User user = 1;
+}
+
+service UserService {
+    rpc validToken (validTokenRequest) returns (validTokenResponse);
+}

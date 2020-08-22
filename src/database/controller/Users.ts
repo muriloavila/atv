@@ -15,7 +15,7 @@ class UserController {
             return res.status(404).send({message: 'Error: User Not find'});
         }
 
-        delete user.password;
+        user.password = '';
 
         const token = jwt.sign({id: user.id,}, (process.env.SECRET || ''), {
             expiresIn: 86400
