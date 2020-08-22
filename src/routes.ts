@@ -5,11 +5,8 @@ const userController = new UserController();
 
 const routes = express.Router();
 
-routes.get('/', (req, res) => {
-    res.send({message: 'Hello World'});
-});
+routes.get('/auth', (req, res) => userController.login(req, res));
 
-routes.get('/auth', (req, res) => userController.verify(req, res));
-
+routes.get('/verify', (req, res) => userController.verify(req, res));
 
 export default routes;

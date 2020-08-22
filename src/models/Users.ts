@@ -1,4 +1,6 @@
+import { Model } from 'mongoose';
 import mongoose from '../config/database';
+import { IUserModel } from '../Interfaces/IUserModel';
 
 const UsersModel = new mongoose.Schema({
     name: {
@@ -15,7 +17,7 @@ const UsersModel = new mongoose.Schema({
     }
 })
 
-const Users = mongoose.model('users', UsersModel);
+const Users = mongoose.model<IUserModel, Model<IUserModel> >('users', UsersModel);
 
 
 export default Users;
