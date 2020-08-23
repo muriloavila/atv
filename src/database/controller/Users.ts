@@ -5,13 +5,13 @@ import Users from '../models/Users';
 
 class UserController {
     async login(req:any, res:any) {
-        const user = await Users.findOne({ username: req.body.username }).select('+password');
+        const user = await Users.findOne({ username: req.query.username }).select('+password');
         
         if(!user){
             return res.status(404).send({message: 'Error: User not Find'});
         }
 
-        if(!await bcrypt.compare(req.body.password, user.password)){
+        if(!await bcrypt.compare(req.query.password, user.password)){
             return res.status(404).send({message: 'Error: User Not find'});
         }
 
