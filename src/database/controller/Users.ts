@@ -8,11 +8,11 @@ class UserController {
         const user = await Users.findOne({ username: req.query.username }).select('+password');
         
         if(!user){
-            return res.status(404).send({message: 'Error: User not Find'});
+            return res.status(401).send({message: 'Error: User not Find'});
         }
 
         if(!await bcrypt.compare(req.query.password, user.password)){
-            return res.status(404).send({message: 'Error: User Not find'});
+            return res.status(401).send({message: 'Error: User Not find'});
         }
 
         user.password = '';
