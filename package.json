@@ -5,13 +5,15 @@
   "author": "Murilo Avila <murilo.avila068@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "dev":"npm-run-all -p dev:*",
+    "dev": "npm-run-all -p dev:*",
     "dev:http": "nodemon src/http/server.ts",
     "dev:grpc": "nodemon src/grpc/index.ts"
   },
   "dependencies": {
     "@grpc/proto-loader": "^0.5.5",
+    "@types/cors": "^2.8.7",
     "bcrypt": "^5.0.0",
+    "cors": "^2.8.5",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "grpc": "^1.24.3",
